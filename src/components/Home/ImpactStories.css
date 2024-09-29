@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #053518; /* Main dark green */
+    --secondary-color: #c0eba6; /* Light green */
+    --text-color: #34495e; /* Darker gray for text */
+    --hover-bg-color: #85c881; /* Hover background color */
+  }
+  
+  .impact-stories-section {
+    padding: 5px 20px;
+    text-align: center;
+  }
+  
+  .impact-stories-section h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .stories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .last img{
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  
+  .story {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .story img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .story h3 {
+    font-family: "Questrial", sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+  }
+  
+  .story p {
+    font-family: "Questrial", sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-top: 10px;
+  }
+  
+  .story:hover {
+    transform: translateY(-10px);
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .story:hover h3,
+  .story:hover p {
+    color: #fff;
+  }
+  
+  
+  
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .stories-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  

@@ -1,0 +1,28 @@
+.restaurant-dashboard {
+    padding: 20px;
+  }
+  
+  .restaurant-dashboard h1 {
+    color: #34495e;
+  }
+  
+  .restaurant-dashboard .overview {
+    margin: 20px 0;
+  }
+  
+  .restaurant-dashboard .overview h2 {
+    color: #2980b9;
+  }
+  
+  .add-donation-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-donation-btn:hover {
+    background-color: #2ecc71;
+  }
+  

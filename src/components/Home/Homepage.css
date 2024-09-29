@@ -1,0 +1,250 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Questrial", sans-serif;
+}
+
+/* Homepage Layout */
+.homepage {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  grid-template-rows: repeat(5, auto); /* Dynamic row heights */
+  grid-template-areas: 
+    'main'
+    'about'
+    'impact-stories'
+    'how-it-works'
+    'stats';
+}
+
+.main {
+  background-color: #C0EBA6;
+}
+
+.vegim{
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.vegim img{
+  height: 450px !important;
+  width: 250px !important;
+}
+
+.vegim1{
+  position: absolute;
+  top: 0;
+  right: 0; 
+  object-fit: cover;
+}
+
+.vegim1 img{
+  
+  height: 450px !important;
+  width: 250px !important;
+}
+
+/* Header Styles */
+.homepage-header {
+  display: flex;
+  justify-content: flex-end; /* Align links to the end */
+  align-items: center;
+  padding: 10px 20px;
+  height: 105px;
+  position: relative; /* For positioning logo */
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo img {
+  height: 80px;
+}
+
+/* Navigation Styles */
+.homepage-header nav a {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #20221c;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  width: 100%;
+  position: relative; /* Changed to relative for better layout */
+  color: #053518;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+/* Call-to-Action Buttons */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  margin: 20px 0;
+}
+
+.cta-buttons button {
+  font-family: "Questrial", sans-serif;
+  background-color: #26814e;
+  color: #FFFBE6;
+  padding: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+  font-weight: 300;
+}
+
+/* Button Images */
+.for-ngos-btn img,
+.for-restaurants-btn img {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* About Section */
+.about {
+  background-color: #FFFBE6;
+}
+
+/* Stats Section */
+.stats {
+  text-align: center;
+  padding: 40px;
+  background-color: #C0EBA6;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 50px 20px;
+  background-color: #053518;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 4rem;
+  margin-bottom: 40px;
+  color: #C0EBA6;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.step {
+  flex: 1;
+  min-width: 300px;
+  background-color: #C0EBA6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+.step img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.step h3 {
+  font-size: 3rem;
+  color: #053518;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 1.5rem;
+  color: #20221c;
+}
+
+/* Impact Stories Section */
+.impact-stories {
+  background-color: #FFFDF4;
+  padding: 40px;
+  color: black;
+  text-align: center;
+}
+
+/* Footer Styles */
+.homepage-footer {
+  background-color: #1C2B22;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+  .homepage-header {
+    flex-direction: column; /* Stack header items */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .hero h2 {
+    font-size: 3.5rem; /* Slightly smaller heading for tablets */
+  }
+
+  .cta-buttons button {
+    font-size: 1.5rem; /* Smaller button text for tablets */
+    width: 250px; /* Adjust button width */
+    height: 250px; /* Adjust button height */
+  }
+
+  .how-it-works h2 {
+    font-size: 3.5rem; /* Smaller heading for how-it-works section */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2.5rem; /* Smaller heading for mobile */
+  }
+
+  .cta-buttons button {
+    font-size: 1.2rem; /* Smaller button text for mobile */
+    width: 200px; /* Adjust button width */
+    height: 200px; /* Adjust button height */
+  }
+
+  .steps {
+    flex-direction: column; /* Stack steps vertically */
+  }
+
+  .step {
+    min-width: 100%; /* Full width for mobile steps */
+  }
+
+  .impact-stories,
+  .stats {
+    padding: 20px; /* Reduced padding */
+  }
+
+  .homepage-footer {
+    padding: 10px; /* Reduced footer padding */
+  }
+}

@@ -1,0 +1,122 @@
+.about-section {
+  padding: 60px 20px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between; /* Ensure spacing between elements */
+}
+
+.main-content {
+  width: 50%;
+}
+
+.image {
+  width: 50%;
+  margin-left: auto; /* Aligns the image div to the right */
+  padding-left: 60px;
+}
+
+.image img {
+  padding: 20px;
+  width: 90%;
+}
+
+.content {
+  margin-left: 100px;
+}
+
+.content p {
+  width: 90%;
+}
+
+.about-section h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #053518;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-family: "Questrial", sans-serif;
+  font-size: 1.2rem;
+  color: #20221c;
+  text-align: left;
+}
+
+.what-we-do-container {
+  margin-left: 100px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.what-we-do-item {
+  width: 95%;
+  height: 7rem;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: 'imga head3'
+                       'imga para';
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  background-color: #C0EBA6;
+  transition: transform 0.3s;
+}
+
+.div-image {
+  grid-area: imga;
+  height: 80%;
+  width: 50px;
+  display: inline;
+}
+
+.first img {
+  padding: 15px;
+  width: 6rem;
+  height: 6rem;
+}
+
+.second img {
+  padding-top: 15px;
+  width: 9rem;
+}
+
+.third img {
+  width: 8rem;
+}
+
+.what-we-do-item h3 {
+  grid-area: head3;
+  font-family: "Questrial", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #053518;
+  margin-bottom: 10px;
+}
+
+.what-we-do-item p {
+  grid-row: para;
+  color: #34495e;
+}
+
+.what-we-do-item:hover {
+  background-color: #053518;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.what-we-do-item:hover h3,
+.what-we-do-item:hover p {
+  color: #C0EBA6; /* Change to blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .what-we-do-container {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+  }
+}

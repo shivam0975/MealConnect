@@ -1,0 +1,117 @@
+.stats-section {
+  padding: 60px 20px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto; /* Auto height for better responsiveness */
+  grid-gap: 20px;
+  grid-template-areas: 
+    'h2'
+    'impact-description'
+    'stats-container';
+}
+
+.stats-section h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem; /* Default font size */
+  font-weight: 900;
+  color: #053518;
+  margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.stats-container {
+  padding: 0 20px; /* Responsive padding */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexibly adjust columns */
+}
+
+.impact-description {
+  font-family: "Questrial", sans-serif;
+  font-size: 1.8rem; /* Default font size */
+  color: #20221c;
+  max-width: 100%; /* Full width for responsiveness */
+  margin: 0 auto 40px; /* Centered with margin below */
+}
+
+.stat-item {
+  background-color: #053518;
+  border-radius: 20px; /* Slightly more rounded corners */
+  padding: 30px; /* Reduced padding for better space usage */
+  width: 100%; /* Full width for responsiveness */
+  max-width: 300px; /* Maximum width to prevent overflow */
+  height: auto; /* Automatic height */
+  margin: 15px; /* Added margin for spacing */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-item img {
+  width: 100%; /* Responsive image */
+  max-width: 200px; /* Maintain max width */
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h3 {
+  font-family: "Questrial", sans-serif;
+  font-size: 2rem; /* Default heading size */
+  color: #73EC8B;
+  margin-bottom: 10px; /* Spacing below heading */
+}
+
+.stat-item p {
+  font-family: "Questrial", sans-serif;
+  font-size: 1rem; /* Default paragraph size */
+  color: #C0EBA6;
+  margin: 10px 0; /* Margin for paragraph */
+}
+
+.stat-item span {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.9rem; /* Default span size */
+  color: #7DD076;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .stats-section h2 {
+    font-size: 3.5rem; /* Slightly smaller heading for tablets */
+  }
+
+  .impact-description {
+    font-size: 1.6rem; /* Adjust paragraph size for tablets */
+  }
+
+  .stat-item h3 {
+    font-size: 1.8rem; /* Smaller heading in items */
+  }
+
+  .stat-item p,
+  .stat-item span {
+    font-size: 0.9rem; /* Smaller text */
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-section h2 {
+    font-size: 3rem; /* Smaller heading for mobile */
+  }
+
+  .impact-description {
+    font-size: 1.4rem; /* Smaller paragraph for mobile */
+  }
+
+  .stat-item h3 {
+    font-size: 1.5rem; /* Smaller heading in items */
+  }
+
+  .stat-item p,
+  .stat-item span {
+    font-size: 0.8rem; /* Smaller text */
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr; /* Stack items on small screens */
+  }
+}

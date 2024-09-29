@@ -1,0 +1,130 @@
+.footer {
+    color: #C1D7F0;
+    padding: 40px 20px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 30% 70%; /* Two equal columns */
+    grid-template-rows: auto auto; /* Adjust height of rows automatically */
+    grid-gap: 20px; /* Space between the grid items */
+    padding: 20px;
+    padding-left: 100px;
+    justify-content: center;
+    
+  }
+  
+
+  .footer-content {
+    grid-column: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-logo-tagline {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    width: 300px;
+    height: auto;
+  }
+  
+  .footer-tagline {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.2rem;
+    color: white;
+  }
+  
+  .footer-links {
+    padding: 5%;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    gap:50px;
+  }
+  
+  .link-section {
+    margin: 0 20px;
+  }
+  
+  .link-section h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: #C0EBA6;
+    margin-bottom: 15px;
+  }
+  
+  .link-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .link-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .link-section ul li a {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .link-section ul li a:hover {
+    color: #C0EBA6;
+  }
+  
+  /* Follow Us Section */
+  .footer-follow {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .footer-follow h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: #C0EBA6;
+    margin-bottom: 15px;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .social-icon {
+    margin: 0 10px;
+    font-size: 2rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #C0EBA6;
+  }
+  
+  .footer-copyright {
+    grid-column: 1 / span 2;
+    font-family: 'Questrial', sans-serif;
+    font-size: 0.9rem;
+    color: #dcdcdc;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .link-section {
+      margin: 20px 0;
+    }
+  
+    .social-icons {
+      margin-top: 20px;
+    }
+  }
+  
