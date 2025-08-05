@@ -35,9 +35,9 @@
 .stat-item {
   background-color: #053518;
   border-radius: 20px; /* Slightly more rounded corners */
-  padding: 30px; /* Reduced padding for better space usage */
+  padding: 20px; /* Reduced padding for better space usage */
   width: 100%; /* Full width for responsiveness */
-  max-width: 300px; /* Maximum width to prevent overflow */
+  max-width: 270px; /* Maximum width to prevent overflow */
   height: auto; /* Automatic height */
   margin: 15px; /* Added margin for spacing */
   transition: transform 0.3s, box-shadow 0.3s;

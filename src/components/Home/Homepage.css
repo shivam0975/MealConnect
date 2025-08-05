@@ -7,8 +7,8 @@ body {
 /* Homepage Layout */
 .homepage {
   display: grid;
-  grid-template-columns: 1fr; /* Single column layout */
-  grid-template-rows: repeat(5, auto); /* Dynamic row heights */
+  grid-column: 100%;
+  grid-row: repeat(5, 1vw); /* Dynamic row heights */
   grid-template-areas: 
     'main'
     'about'

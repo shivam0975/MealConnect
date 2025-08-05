@@ -7,24 +7,18 @@
 
 .main-content {
   width: 50%;
+  margin-left: 100px;
 }
 
 .image {
   width: 50%;
+  padding-top: 120px;
   margin-left: auto; /* Aligns the image div to the right */
   padding-left: 60px;
 }
 
 .image img {
   padding: 20px;
-  width: 90%;
-}
-
-.content {
-  margin-left: 100px;
-}
-
-.content p {
   width: 90%;
 }
 
@@ -44,7 +38,6 @@
 }
 
 .what-we-do-container {
-  margin-left: 100px;
   margin-top: 50px;
   display: grid;
   grid-template-rows: repeat(3, minmax(150px, 1fr));
@@ -56,7 +49,7 @@
   height: 7rem;
   padding-top: 10px;
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 25% 75%;
   grid-template-rows: 30% 70%;
   grid-template-areas: 'imga head3'
                        'imga para';
@@ -76,13 +69,13 @@
 
 .first img {
   padding: 15px;
-  width: 6rem;
-  height: 6rem;
+  padding-left: 20px;
+  width: 5.5rem;
 }
 
 .second img {
-  padding-top: 15px;
-  width: 9rem;
+  padding-top: 23px;
+  width: 8rem;
 }
 
 .third img {

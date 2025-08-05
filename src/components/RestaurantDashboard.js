@@ -1,23 +1,50 @@
 import React from "react";
-import './RestaurantDashboard.css'; // Import the CSS
 import { Link } from "react-router-dom";
+import './RestaurantDashboard.css';
 
-const RestaurantDashboard = () => {
+const RestaurantDashboard = ({ donations }) => {
   return (
     <div className="restaurant-dashboard">
-      <h1>Restaurant Dashboard</h1>
+      <header className="dashboard-header">
+        <h1>Restaurant Dashboard</h1>
+        <p>Welcome! Manage your food donations and track recent activity.</p>
+      </header>
 
       <section className="overview">
-        <h2>Pending Food Listings</h2>
-        <p>No pending listings.</p>
+        <div className="card pending-listings">
+          <h2>Pending Food Listings</h2>
+          {donations.length === 0 ? (
+            <p>No pending listings.</p>
+          ) : (
+            <ul>
+              {donations.map((donation, index) => (
+                <li key={index}>
+                  <strong>{donation.foodType}</strong> - Quantity: {donation.quantity}, Pickup Time: {donation.pickupTime}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-        <h2>Recent Food Donations</h2>
-        <p>No recent donations.</p>
-        
-        <Link to='/add-donation'>
-        <button className="add-donation-btn">Add New Donation</button>
-        </Link>
+        <div className="card recent-donations">
+          <h2>Recent Food Donations</h2>
+          {donations.length === 0 ? (
+            <p>No recent donations.</p>
+          ) : (
+            <ul>
+              {donations.slice(-5).map((donation, index) => (
+                <li key={index}>
+                  <strong>{donation.foodType}</strong> - Quantity: {donation.quantity}, Pickup Time: {donation.pickupTime}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </section>
+
+      <Link to="/add-donation" className="add-donation-link">
+        <button className="add-donation-btn">Add New Donation</button>
+      </Link>
     </div>
   );
 };

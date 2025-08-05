@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './AddDonation.css'; // Importing the CSS for the form styling
+import { useNavigate } from 'react-router-dom';
+import './AddDonation.css';
 
-const AddDonation = () => {
+const AddDonation = ({ onAddDonation }) => {
   const [donationData, setDonationData] = useState({
     restaurantName: '',
     foodType: '',
@@ -10,6 +11,8 @@ const AddDonation = () => {
     additionalNotes: ''
   });
 
+  const navigate = useNavigate();
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setDonationData({ ...donationData, [name]: value });
@@ -17,8 +20,8 @@ const AddDonation = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(donationData);
-    // Logic to handle form submission (e.g., POST request)
+    onAddDonation(donationData); // Add the new donation
+    navigate('/restaurants'); // Redirect to dashboard
   };
 
   return (

@@ -1,28 +1,94 @@
+/* RestaurantDashboard Container Styling */
 .restaurant-dashboard {
-    padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f4f6;
+  padding: 20px;
+  color: #333;
+  overflow-y: auto;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2b6e3e;
+}
+
+.dashboard-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0d3b26;
+}
+
+.dashboard-header p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Overview Section */
+.overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 80%;
+  max-width: 1000px;
+}
+
+/* Card Styling */
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0d3b26;
+  margin-bottom: 10px;
+}
+
+.card ul {
+  list-style-type: none;
+  padding: 0;
+  max-height: 200px;
+}
+
+.card li {
+  font-size: 1rem;
+  color: #555;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Button Styling */
+.add-donation-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2b6e3e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.add-donation-btn:hover {
+  background-color: #235b32;
+  transform: translateY(-2px);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .overview {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
   }
-  
-  .restaurant-dashboard h1 {
-    color: #34495e;
-  }
-  
-  .restaurant-dashboard .overview {
-    margin: 20px 0;
-  }
-  
-  .restaurant-dashboard .overview h2 {
-    color: #2980b9;
-  }
-  
-  .add-donation-btn {
-    background-color: #27ae60;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .add-donation-btn:hover {
-    background-color: #2ecc71;
-  }
-  
+}
