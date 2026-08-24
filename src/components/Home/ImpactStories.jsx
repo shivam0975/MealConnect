@@ -5,7 +5,7 @@ import Family from './family.jpg'
 import Distr from './distributing.jpg'
   
 
-const ImpactStories = (props) => {
+const ImpactStories = () => {
 
   return (
     <div className="impact-stories-section" >

@@ -5,7 +5,7 @@ import vect2 from './vect1.png';
 import vect3 from './vect2.png';
 
 
-const StatsSection = (props) => {
+const StatsSection = () => {
 
   return (
     <div className="stats-section">

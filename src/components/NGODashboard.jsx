@@ -1,6 +1,6 @@
 import React from 'react';
 import './NGODashboard.css'; // Importing the CSS for styling
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 const NGODashboard = () => {
   return (

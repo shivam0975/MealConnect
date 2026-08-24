@@ -1,6 +1,5 @@
 import React , {useState} from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router';
 
 // Importing all the components
 import Homepage from './components/Home/Homepage';
@@ -13,16 +12,16 @@ import Contact from './components/Contact';
 import AdminPanel from './components/AdminPanel';
 import ManageDonations from './components/ManageDonations';
 
-const AppRouter = () => {
+const NotFound = () => {
+  return (
+    <div>
+      <h1>404 - Page Not Found</h1>
+      <Link to="/">Go back to Home</Link>
+    </div>
+  );
+};
 
-    const NotFound = () => {
-        return (
-          <div>
-            <h1>404 - Page Not Found</h1>
-            <Link to="/">Go back to Home</Link>
-          </div>
-        );
-      };
+const AppRouter = () => {
 
     const [donations, setDonations] = useState([]);
 
