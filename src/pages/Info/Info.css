@@ -1,0 +1,187 @@
+/* Shared styles for the informational pages (About, FAQ, Careers, ...). */
+
+.info-page {
+  padding-block: var(--section-pad-y);
+}
+
+.info-section + .info-section {
+  margin-top: var(--space-xl);
+}
+
+.info-section__title {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.info-section__intro {
+  max-width: 65ch;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+  color: var(--color-slate);
+}
+
+/* Two-up media + copy block that stacks on tablet. */
+.info-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.info-split img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+/* ---------------------------------------------------------- value list --- */
+
+.value-card {
+  background-color: var(--color-leaf);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.value-card h3 {
+  margin-bottom: var(--space-2xs);
+}
+
+.value-card p {
+  margin: 0;
+  color: var(--color-ink);
+}
+
+/* ------------------------------------------------------------ metrics ---- */
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-md);
+  text-align: center;
+}
+
+.metric {
+  background-color: var(--color-forest);
+  color: var(--color-leaf);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.metric__value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--color-mint);
+}
+
+.metric__label {
+  font-size: var(--fs-small);
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------- FAQ ---- */
+
+.faq-list {
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+.faq-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+}
+
+/* <details>/<summary> gives an accessible accordion with no JavaScript. */
+.faq-item__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  color: var(--color-forest);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__question::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-item__question::after {
+  content: "\2212"; /* minus */
+}
+
+.faq-item__answer {
+  padding: 0 var(--space-md) var(--space-md);
+  margin: 0;
+  color: var(--color-slate);
+}
+
+/* -------------------------------------------------------------- lists ---- */
+
+.listing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.listing__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  margin: var(--space-2xs) 0 0;
+}
+
+.listing__body {
+  /* Lets the text block shrink below its content width so the CTA can wrap
+     underneath on phones instead of squeezing. */
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--color-leaf);
+  color: var(--color-forest);
+  font-size: var(--fs-small);
+  font-weight: bold;
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+}
+
+.notice {
+  background-color: var(--color-cream);
+  border-left: 4px solid var(--color-grass);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-slate);
+}
+
+@media (max-width: 480px) {
+  .listing {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

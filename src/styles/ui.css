@@ -1,0 +1,306 @@
+/**
+ * Small shared UI layer — buttons, cards and prose blocks used across pages so
+ * each one doesn't hand-roll its own. Colours come from tokens.css.
+ */
+
+/* ------------------------------------------------------------ buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  /* min-height keeps every button a comfortable touch target on phones. */
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--primary {
+  background-color: var(--color-grass);
+  color: var(--color-cream);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-forest);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-forest);
+  color: var(--color-leaf);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------- cards ---- */
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-md);
+}
+
+.card__title {
+  font-size: var(--fs-h3);
+  color: var(--color-forest);
+  margin-bottom: var(--space-xs);
+}
+
+/**
+ * Auto-fitting card grid. `minmax(min(<floor>, 100%), 1fr)` is the important
+ * part: without the inner min(), the floor wins on narrow phones and the track
+ * overflows the viewport.
+ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.card-grid--wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+}
+
+/* ------------------------------------------------------------- forms ----- */
+
+.field {
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.field__label {
+  display: block;
+  font-weight: bold;
+  color: var(--color-forest);
+  margin-bottom: var(--space-2xs);
+}
+
+.field__control {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  /* 16px minimum stops iOS Safari zooming in when a field is focused. */
+  font-size: max(1rem, var(--fs-body));
+}
+
+.field__control:focus {
+  border-color: var(--color-grass);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(38, 129, 78, 0.18);
+}
+
+textarea.field__control {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.field__hint {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  margin-top: var(--space-2xs);
+}
+
+/* -------------------------------------------------------------- prose ---- */
+
+/* Long-form pages: policies, terms, FAQ answers. */
+.prose {
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+.prose h2 {
+  font-size: var(--fs-h3);
+  margin-top: var(--space-lg);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  margin-bottom: var(--space-sm);
+}
+
+.prose li {
+  margin-bottom: var(--space-2xs);
+}
+
+/* ------------------------------------------------------------- tables ---- */
+
+/**
+ * Wrapper so wide tables scroll on their own instead of widening the page.
+ * -webkit-overflow-scrolling gives momentum scrolling on iOS.
+ */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-scroll table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+/* ------------------------------------------------------------ status ----- */
+
+.status {
+  display: inline-block;
+  font-size: var(--fs-small);
+  font-weight: bold;
+  padding: var(--space-2xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.status--pending {
+  background-color: #fdf3d8;
+  color: #8a6d1f;
+}
+
+.status--accepted {
+  background-color: #d9f2e0;
+  color: #1d6b3c;
+}
+
+.status--rejected {
+  background-color: #fadedd;
+  color: #9a2f2a;
+}
+
+/* ---------------------------------------------------------- dashboard --- */
+
+.dashboard {
+  padding-block: var(--section-pad-y);
+}
+
+.dashboard__section {
+  margin-top: var(--space-xl);
+}
+
+.dashboard__section-title {
+  margin-bottom: var(--space-md);
+}
+
+.stat-card {
+  background-color: var(--color-forest);
+  color: var(--color-leaf);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.stat-card__value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--color-mint);
+  line-height: 1.1;
+}
+
+.stat-card__label {
+  margin: var(--space-2xs) 0 0;
+  font-size: var(--fs-small);
+}
+
+/* Action buttons inside table rows. */
+.table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.btn--sm {
+  min-height: 36px;
+  padding: var(--space-2xs) var(--space-sm);
+  font-size: var(--fs-small);
+}
+
+.btn--danger {
+  background-color: #9a2f2a;
+  color: #ffffff;
+}
+
+.btn--danger:hover {
+  background-color: #7a221e;
+}
+
+/* Feedback shown after a form submits. */
+.form-status {
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  font-weight: bold;
+}
+
+.form-status--success {
+  background-color: #d9f2e0;
+  color: #1d6b3c;
+}
+
+.form-status--error {
+  background-color: #fadedd;
+  color: #9a2f2a;
+}
+
+/* --------------------------------------------------------- data tables --- */
+
+.data-table th,
+.data-table td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.data-table thead th {
+  background-color: var(--color-leaf);
+  color: var(--color-forest);
+  font-family: var(--font-heading);
+  white-space: nowrap;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--color-ivory);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}

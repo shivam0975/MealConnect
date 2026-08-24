@@ -1,0 +1,70 @@
+.stats-section {
+  max-width: var(--container);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.stats-section h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 900;
+  color: var(--color-forest);
+  margin-bottom: var(--space-md);
+}
+
+.impact-description {
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  color: var(--color-ink);
+  max-width: 70ch;
+  margin: 0 auto var(--space-lg);
+}
+
+.stats-container {
+  display: grid;
+  /* The 250px floor used to overflow a 375px phone once margins and padding
+     were added; min() caps it at the available width. */
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-md);
+  justify-items: center;
+}
+
+.stat-item {
+  background-color: var(--color-forest);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  width: 100%;
+  max-width: 270px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.stat-item img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-item h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h3);
+  color: var(--color-mint);
+  margin-bottom: var(--space-xs);
+}
+
+.stat-item p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-leaf);
+  margin: var(--space-xs) 0;
+}
+
+.stat-item span {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--color-sage);
+}

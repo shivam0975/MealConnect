@@ -1,0 +1,31 @@
+.volunteer-page {
+  padding-block: var(--section-pad-y);
+}
+
+.volunteer-grid {
+  display: grid;
+  /* Benefits column is narrower than the form on desktop; stacks below 900px. */
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.volunteer-card {
+  padding: var(--space-lg);
+}
+
+.volunteer-benefits {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--color-slate);
+}
+
+.volunteer-benefits li {
+  margin-bottom: var(--space-xs);
+}
+
+@media (max-width: 480px) {
+  .volunteer-card {
+    padding: var(--space-md);
+  }
+}

@@ -1,0 +1,69 @@
+.impact-stories-section {
+  max-width: var(--container);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.impact-stories-section h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-bottom: var(--space-lg);
+}
+
+.stories-container {
+  display: grid;
+  /* Was a hard `repeat(3, 1fr)`, which stayed three columns all the way down to
+     768px and squeezed the copy into unreadable strips on tablets. */
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.story {
+  background-color: var(--color-surface);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), background-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.story img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.story h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h3);
+  color: var(--color-forest);
+  margin-top: var(--space-md);
+}
+
+.story p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--color-slate);
+  margin-top: var(--space-xs);
+}
+
+.story:hover {
+  transform: translateY(-10px);
+  background-color: var(--color-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.story:hover h3,
+.story:hover p {
+  color: #ffffff;
+}
+
+/* The third card's image carried extra padding to line the row up; with an
+   auto-fitting grid the cards align on their own. */
+.last img {
+  padding-block: var(--space-md);
+}

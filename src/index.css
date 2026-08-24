@@ -1,3 +1,148 @@
+@import "./styles/tokens.css";
+@import "./styles/ui.css";
+
+/* ---------------------------------------------------------------- reset --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  /**
+   * The mobile nav drawer parks off-canvas at translateX(100%). It is
+   * position:fixed, so body's overflow does not contain it — clipping here,
+   * where overflow propagates to the viewport, stops it widening the document.
+   */
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-ivory);
+  /**
+   * `clip` contains stray overflow without creating a scroll container, so
+   * position:sticky still works on descendants (overflow-x:hidden would break it).
+   */
+  overflow-x: clip;
+}
+
+/* Media should never be the reason a page scrolls sideways. */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Long words and URLs shouldn't push a phone layout open either. */
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+a {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  line-height: 1.15;
+  margin: 0 0 var(--space-sm);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { margin: 0 0 var(--space-sm); }
+
+a { color: var(--color-accent); }
+
+/* Form controls inherit the site font instead of the browser default. */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* ------------------------------------------------------------- layout ---- */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--section-pad-x);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding-block: var(--section-pad-y);
+}
+
+/* --------------------------------------------------------- a11y helpers -- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keyboard users get a visible focus ring; mouse users don't. */
+:focus-visible {
+  outline: 3px solid var(--color-grass);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-sm);
+  top: -100%;
+  z-index: 200;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-forest);
+  color: var(--color-leaf);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* Respect users who have asked the OS to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

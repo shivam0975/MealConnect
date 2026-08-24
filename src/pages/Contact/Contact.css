@@ -1,0 +1,69 @@
+.contact-page {
+  padding-block: var(--section-pad-y);
+}
+
+.contact-grid {
+  display: grid;
+  /* Two columns on desktop, one on tablet and below. */
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.contact-card {
+  padding: var(--space-lg);
+}
+
+.contact-details {
+  list-style: none;
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+}
+
+.contact-details li {
+  margin-bottom: var(--space-xs);
+  color: var(--color-slate);
+}
+
+.contact-details a {
+  color: var(--color-accent);
+}
+
+.contact-social-heading {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px touch target, replacing the plain text links that were here before. */
+  width: 44px;
+  height: 44px;
+  font-size: 1.35rem;
+  color: var(--color-grass);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.contact-social a:hover {
+  color: #ffffff;
+  background-color: var(--color-grass);
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: var(--space-md);
+  }
+}

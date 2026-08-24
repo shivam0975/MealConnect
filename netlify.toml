@@ -1,0 +1,30 @@
+# Netlify project configuration.
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  # Functions are authored as ES modules (.mts / .mjs).
+  node_bundler = "esbuild"
+
+# Friendlier API paths: /api/donations -> /.netlify/functions/donations
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# SPA fallback. Must come last so it does not swallow the API rule above:
+# React Router owns client-side routing, so every other path returns index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  port = 8888
+  framework = "#custom"

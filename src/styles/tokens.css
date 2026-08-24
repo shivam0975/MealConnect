@@ -1,0 +1,81 @@
+/**
+ * Design tokens for MealConnect.
+ *
+ * These values are lifted directly from the original homepage stylesheets so the
+ * look at "/" is unchanged — they are centralised here so every other page can
+ * reuse the same palette, type scale and spacing instead of re-declaring hex
+ * codes. Breakpoints used throughout the app: 480px (phone), 768px (tablet),
+ * 1024px (small laptop). CSS custom properties cannot be used inside @media
+ * conditions, so those numbers stay literal in the stylesheets.
+ */
+
+:root {
+  /* Greens, dark to light */
+  --color-forest: #053518;
+  --color-bark: #1c2b22;
+  --color-grass: #26814e;
+  --color-hover: #85c881;
+  --color-sage: #7dd076;
+  --color-mint: #73ec8b;
+  --color-leaf: #c0eba6;
+
+  /* Neutrals */
+  --color-ink: #20221c;
+  --color-slate: #34495e;
+  --color-muted: #6b7a72;
+  --color-cream: #fffbe6;
+  --color-ivory: #fffdf4;
+  --color-surface: #ffffff;
+  --color-border: #e3e8e0;
+
+  /* Semantic aliases */
+  --color-text: var(--color-ink);
+  --color-heading: var(--color-forest);
+  --color-accent: var(--color-grass);
+
+  /* Type families */
+  --font-body: "Questrial", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /**
+   * Fluid type scale. Each clamp() is min / preferred / max so headings shrink
+   * on phones without needing a media query per breakpoint.
+   */
+  --fs-hero: clamp(2.25rem, 8vw, 4rem);
+  --fs-h1: clamp(2rem, 6vw, 3.5rem);
+  --fs-h2: clamp(1.65rem, 4.5vw, 3rem);
+  --fs-h3: clamp(1.2rem, 3vw, 1.8rem);
+  --fs-lead: clamp(1.05rem, 2.4vw, 1.6rem);
+  --fs-body: clamp(1rem, 1.6vw, 1.15rem);
+  --fs-small: clamp(0.85rem, 1.4vw, 0.95rem);
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Fluid section padding — tight on phones, generous on desktop */
+  --section-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --section-pad-x: clamp(1rem, 4vw, 3rem);
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 6px rgba(5, 53, 24, 0.06);
+  --shadow: 0 4px 14px rgba(5, 53, 24, 0.1);
+  --shadow-lg: 0 12px 28px rgba(5, 53, 24, 0.16);
+
+  /* Layout */
+  --container: 1200px;
+  --container-narrow: 780px;
+  --header-height: 84px;
+
+  --transition: 0.25s ease;
+}

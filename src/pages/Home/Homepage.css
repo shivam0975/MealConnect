@@ -1,0 +1,260 @@
+/**
+ * Homepage layout.
+ *
+ * The original used `display:grid` with `grid-column:100%` and
+ * `grid-row:repeat(5,1vw)` — neither is valid, and the sections were really
+ * just stacking in normal flow. They now stack explicitly.
+ */
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------------------- hero --- */
+
+.main {
+  background-color: var(--color-leaf);
+  /* Containing block for the decorative produce, which used to be positioned
+     against the document and drifted over the header. */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: clamp(2rem, 6vw, 4rem) var(--section-pad-x) clamp(3rem, 8vw, 6rem);
+  color: #053518;
+  text-align: center;
+}
+
+.hero__title {
+  font-family: var(--font-body);
+  font-size: var(--fs-hero);
+  font-weight: bolder;
+  color: #053518;
+  margin-bottom: var(--space-lg);
+}
+
+/* Decorative produce, pinned to the edges of the hero band. */
+.vegim,
+.vegim1 {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vegim {
+  left: 0;
+}
+
+.vegim1 {
+  right: 0;
+}
+
+.vegim img,
+.vegim1 img {
+  /* Was a hard 250x450, which is what pushed the page 100px wider than the
+     viewport even on a 1024px laptop. Now it scales with the viewport. */
+  width: clamp(120px, 18vw, 250px);
+  height: clamp(220px, 32vw, 450px);
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------- CTA buttons --- */
+
+.cta-buttons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.cta-link {
+  text-decoration: none;
+}
+
+/**
+ * Rendered as a <span> inside the <Link> rather than a <button>: a button
+ * nested in an anchor is invalid HTML and confuses screen readers.
+ *
+ * The two cards are laid out from identical parts — label, action, circular
+ * media — so they stay visually parallel. Previously each one inlined its own
+ * markup and its own image sizing, and because bt1 is landscape (445x230) while
+ * bt3 is portrait (273x311), `width: 70%` rendered them at completely different
+ * heights and weights.
+ */
+.cta-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centred as a group rather than text-top / image-bottom, which left a void
+     through the middle of the card. */
+  justify-content: center;
+  gap: var(--space-xs);
+  width: clamp(150px, 40vw, 300px);
+  height: clamp(150px, 40vw, 300px);
+  padding: clamp(0.75rem, 2.5vw, 1.75rem);
+  font-family: var(--font-body);
+  line-height: 1.2;
+  text-align: center;
+  color: #fffbe6;
+  background-color: #26814e;
+  border-radius: clamp(24px, 5vw, 50px);
+  cursor: pointer;
+  transition: transform var(--transition), background-color var(--transition);
+}
+
+.cta-button__label {
+  font-size: clamp(0.8rem, 1.9vw, 1.35rem);
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.cta-button__action {
+  font-size: clamp(0.95rem, 2.4vw, 1.75rem);
+  font-weight: bold;
+}
+
+/**
+ * Fixed square that both images are cropped into, so a landscape photo and a
+ * portrait one present at exactly the same size. The circle also turns the
+ * white plate in the NGO photo into a deliberate shape rather than a pale blob
+ * floating on the green.
+ */
+.cta-button__media {
+  display: block;
+  width: clamp(72px, 19vw, 148px);
+  aspect-ratio: 1;
+  margin-top: var(--space-xs);
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-cream);
+  /* Cream halo so both circles have the same defined edge. Without it the
+     white plate in the NGO photo bleeds into the backing and that circle reads
+     softer than the other. Light enough to stay visible on the hover colour. */
+  box-shadow: 0 0 0 4px rgba(255, 251, 230, 0.3);
+  flex-shrink: 0;
+}
+
+.cta-button__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* cover, not contain — contain would letterbox the landscape image and leave
+     it visibly smaller than the portrait one. */
+  object-fit: cover;
+}
+
+.cta-link:hover .cta-button {
+  transform: translateY(-4px);
+  background-color: #053518;
+}
+
+/* ------------------------------------------------------------ sections --- */
+
+.about {
+  background-color: var(--color-cream);
+}
+
+.stats {
+  text-align: center;
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background-color: var(--color-leaf);
+}
+
+.impact-stories {
+  background-color: var(--color-ivory);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  color: black;
+  text-align: center;
+}
+
+/* -------------------------------------------------------- how it works --- */
+
+.how-it-works {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  background-color: #053518;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: var(--fs-h1);
+  margin-bottom: var(--space-lg);
+  color: var(--color-leaf);
+}
+
+.steps {
+  display: grid;
+  /* min() keeps the 300px floor from overflowing a 375px phone. */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-md);
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+.step {
+  background-color: var(--color-leaf);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+}
+
+.step img {
+  width: 80%;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-sm);
+}
+
+.step h3 {
+  font-size: var(--fs-h2);
+  color: #053518;
+  margin-bottom: var(--space-xs);
+}
+
+.step p {
+  font-size: var(--fs-lead);
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* --------------------------------------------------------- responsive ---- */
+
+@media (max-width: 768px) {
+  /* No room to flank the headline with produce on a phone — the text would sit
+     on top of it. */
+  .vegim,
+  .vegim1 {
+    display: none;
+  }
+
+  .hero {
+    padding-top: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-buttons {
+    /* Two circles side by side leaves each about 150px wide, which is too small
+       to read. One per row instead. */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: min(260px, 78vw);
+    height: min(260px, 78vw);
+  }
+}

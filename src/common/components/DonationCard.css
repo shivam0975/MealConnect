@@ -1,0 +1,76 @@
+.donation-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.donation-card__body {
+  /* Shrinks so the status chip and buttons can wrap underneath on phones. */
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.donation-card .card__title {
+  margin-bottom: var(--space-2xs);
+}
+
+.donation-card__owner {
+  font-weight: bold;
+  color: var(--color-grass);
+  margin: 0 0 var(--space-2xs);
+}
+
+.donation-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-md);
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.donation-card__notes {
+  font-size: var(--fs-small);
+  color: var(--color-slate);
+  margin: var(--space-xs) 0 0;
+}
+
+.donation-card__claim {
+  font-size: var(--fs-small);
+  color: var(--color-grass);
+  margin: var(--space-xs) 0 0;
+}
+
+.donation-card__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+}
+
+.donation-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.donation-list {
+  display: grid;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 480px) {
+  .donation-card__side {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .donation-card__actions .btn {
+    flex: 1 1 auto;
+  }
+}

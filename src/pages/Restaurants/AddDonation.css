@@ -1,0 +1,13 @@
+.donation-form {
+  padding: var(--space-lg);
+}
+
+.donation-form .field:last-of-type {
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 480px) {
+  .donation-form {
+    padding: var(--space-md);
+  }
+}

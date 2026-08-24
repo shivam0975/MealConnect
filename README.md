@@ -4,6 +4,42 @@ This website focuses on reducing food waste by partnering with restaurants and g
 # Here's the snapshot of main page of website.
 ![alt text](image.png)
 
+## Project structure
+
+```
+src/
+  main.jsx                  entry — mounts the router and providers
+  App.jsx                   maps the route table onto <Routes>
+  routes.jsx                the route table; add a page here and nowhere else
+  index.css                 reset, base typography, layout helpers
+  styles/
+    tokens.css              palette, fluid type scale, spacing, breakpoints
+    ui.css                  shared buttons, cards, fields, tables, status chips
+  assets/images/            all image assets
+  common/components/        Layout, Navbar, Footer, PageHeader, EmptyState, ...
+  context/                  DonationsProvider (persisted to localStorage)
+  hooks/                    useMediaQuery, useDonations
+  pages/
+    Home/                   Homepage and its sections
+    Restaurants/            dashboard + add-donation form
+    Ngos/                   NGO dashboard
+    Admin/                  admin panel + moderation queue
+    Blog/  Contact/  Volunteer/
+    Info/                   About, Donate, FAQ, Privacy, Terms, Partner,
+                            Events, Careers, Support
+```
+
+### Styling
+
+Plain CSS with custom properties rather than a utility framework. Every colour,
+type size and spacing step is a token in `styles/tokens.css`, so the palette
+taken from the original homepage is applied consistently across the new pages
+without restyling the homepage itself.
+
+Breakpoints are 480px (phone), 768px (tablet) and 1024px (small laptop).
+Headings and section padding use `clamp()`, so most scaling happens without a
+media query at all.
+
 ## Getting started
 
 Built with [Vite](https://vite.dev/), React 19 and React Router 7. Requires Node 20.19+.

@@ -1,0 +1,106 @@
+.auth-page {
+  /* Fills the space between header and footer so a short form still sits on a
+     full-height band rather than floating against the footer. */
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-block: var(--section-pad-y);
+  background-color: var(--color-cream);
+}
+
+.auth-card {
+  padding: var(--space-lg);
+}
+
+.auth-tabs {
+  display: flex;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs);
+  margin-bottom: var(--space-lg);
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.auth-tab {
+  flex: 1;
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-sm);
+  font-weight: bold;
+  color: var(--color-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.auth-tab.is-active {
+  background-color: var(--color-grass);
+  color: #ffffff;
+}
+
+.auth-title {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-2xs);
+}
+
+.auth-intro {
+  color: var(--color-slate);
+  margin-bottom: var(--space-lg);
+}
+
+/* ---------------------------------------------------------- role picker -- */
+
+.auth-roles {
+  display: grid;
+  gap: var(--space-xs);
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+  border: none;
+}
+
+.auth-role {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.auth-role.is-selected {
+  border-color: var(--color-grass);
+  background-color: var(--color-ivory);
+}
+
+.auth-role input {
+  /* Nudged down so the control lines up with the first line of the label. */
+  margin-top: 0.25rem;
+  accent-color: var(--color-grass);
+}
+
+.auth-role span {
+  display: block;
+}
+
+.auth-role__blurb {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+}
+
+.auth-footnote {
+  margin: var(--space-md) 0 0;
+  font-size: var(--fs-small);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-md);
+  }
+}

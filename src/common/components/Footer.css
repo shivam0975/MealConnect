@@ -1,0 +1,149 @@
+/**
+ * The dark background used to live on .homepage-footer, which meant the footer
+ * was only dark on the homepage. It belongs to the component itself.
+ */
+.footer {
+  background-color: var(--color-bark);
+  color: #ffffff;
+  padding: var(--space-xl) var(--section-pad-x) var(--space-lg);
+}
+
+.footer__inner {
+  display: grid;
+  /* Brand block, then the link columns. Collapses to one column on phones. */
+  grid-template-columns: minmax(240px, 1fr) 2fr;
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer__logo {
+  width: min(100%, 260px);
+  height: auto;
+}
+
+.footer__tagline {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: #ffffff;
+  margin-bottom: var(--space-md);
+}
+
+.footer__heading {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-leaf);
+  margin-bottom: var(--space-sm);
+}
+
+/* ------------------------------------------------------------ social ----- */
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  color: #ffffff;
+  border-radius: var(--radius-pill);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.footer__social-link:hover {
+  color: var(--color-leaf);
+  background-color: rgba(192, 235, 166, 0.12);
+}
+
+/* ------------------------------------------------------------- links ----- */
+
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.footer__group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__group li {
+  margin-bottom: var(--space-xs);
+}
+
+.footer__group a {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: #ffffff;
+  text-decoration: none;
+  /* Roomy enough to tap accurately on a phone. */
+  padding: var(--space-2xs) 0;
+  transition: color var(--transition);
+}
+
+.footer__group a:hover {
+  color: var(--color-leaf);
+}
+
+.footer__copyright {
+  max-width: var(--container);
+  margin: var(--space-lg) auto 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #dcdcdc;
+  text-align: center;
+}
+
+/* --------------------------------------------------------- responsive ---- */
+
+@media (max-width: 1024px) {
+  .footer__inner {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__links {
+    /* Three narrow columns are unreadable on a phone; two is the sweet spot,
+       and single column below 480px. */
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding-top: var(--space-lg);
+  }
+
+  .footer__links {
+    grid-template-columns: 1fr;
+  }
+}
